@@ -4,8 +4,10 @@ import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod
 import { confirmParticipants } from "./routes/confirm-participant";
 import { confirmTrip } from "./routes/confirm-trip";
 import { createActivity } from "./routes/create-activity";
+import { createLink } from "./routes/create-link";
 import { createTrip } from "./routes/create-trip";
 import { getActivity } from "./routes/get-activities";
+import { getLinks } from "./routes/get-links";
 
 
 const app = fastify();
@@ -22,6 +24,8 @@ app.register(confirmTrip)
 app.register(confirmParticipants)
 app.register(createActivity)
 app.register(getActivity)
+app.register(createLink)
+app.register(getLinks)
 
 app.listen({ port: 3333}).then(() => {
     console.log('Server Running!')
