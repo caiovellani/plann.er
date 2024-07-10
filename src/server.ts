@@ -1,6 +1,7 @@
 import cors from "@fastify/cors";
 import fastify from "fastify";
 import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod";
+import { errorHandler } from "./error.handler";
 import { confirmParticipants } from "./routes/confirm-participant";
 import { confirmTrip } from "./routes/confirm-trip";
 import { createActivity } from "./routes/create-activity";
@@ -16,6 +17,8 @@ import { updateTrip } from "./routes/update-trip";
 
 
 const app = fastify();
+
+app.setErrorHandler(errorHandler)
 
 app.register(cors, {
     origin: '*',
