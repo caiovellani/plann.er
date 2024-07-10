@@ -6,7 +6,7 @@ import { prisma } from "../lib/prisma";
 
 export async function getParticipants(app: FastifyInstance) {
     app.withTypeProvider<ZodTypeProvider>().get(
-        '/trips/:tripId/activities', 
+        '/trips/:tripId/participants', 
         {
             schema: {
                 params: z.object({
